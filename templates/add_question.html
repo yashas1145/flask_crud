@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Add question{% endblock %}
+
+{% block body %}
+    <h1>Add a new question!</h1>
+    <hr>
+    <form method="POST">
+        <p>Question: <input type="text" name="question"></p>
+        <p>Answer: <input type="text" name="answer"></p>
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+{% endblock %}

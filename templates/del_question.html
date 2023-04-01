@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Delete question {% endblock %}
+
+{% block body %}
+    <h1>Delete a question!</h1>
+        <hr>
+        <h3>Are you sure to delete this question?</h3>
+        <p>Question: {{question.Question}}</p>
+        <p>Answer: {{question.Answer}}</p>
+
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <form method="POST">
+                        <button class="btn btn-success" type="submit">YES</button>
+                    </form>
+                </td>
+                <td><a href="{{ url_for('all_questions')}}"><button class="btn btn-primary">NO</button></a></td>
+            </tr>
+        </table>
+{% endblock %}

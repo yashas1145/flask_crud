@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Questionnaire{% endblock %}
+
+{% block body %}
+<h1>Question time!</h1>
+        <hr>
+        <p>Question: {{card.Question}}</p>
+        <p>Answer: {{card.Answer}}</p>
+
+        <p>
+            {% if count == max_count %}
+                <a href="{{ url_for('question', index=0) }}">
+                    <button class="btn btn-primary">Start over!</button>
+                </a>
+            {% else %}
+                <a href="{{ url_for('question', index=count+1) }}">
+                    <button class="btn btn-primary">Next question!</button>
+                </a>
+            {% endif %}
+        </p>
+{% endblock %}

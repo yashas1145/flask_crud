@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}All questions{% endblock %}
+
+{% block body %}
+<h1>All questions!</h1>
+        <hr>
+
+        <p>
+            <table class="table table-bordered">
+                {% for i in card %}
+                <tr>
+                    <td>Question {{loop.index}}</td>
+                    <td><a href="{{ url_for('question', index=loop.index0) }}">{{i.Question}}</a></td>
+                    <td>
+                        <a href="{{ url_for('api_question', index=loop.index0) }}">
+                            <button class="btn btn-primary">Question {{loop.index}} (REST)</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('del_question', index=loop.index0) }}">
+                            <button class="btn btn-danger">Delete question {{loop.index}}</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </p>
+
+        <p>
+            <a href="{{ url_for('api_questions') }}">
+                <button class="btn btn-primary">All questions (REST)</button>
+            </a>
+        </p>
+
+{% endblock %}
